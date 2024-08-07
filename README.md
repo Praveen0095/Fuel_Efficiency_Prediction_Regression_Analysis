@@ -69,166 +69,60 @@ To run the mileage prediction model, follow these steps:
   ```python
    dp.head(10)
   ```
-   <div>
-    <style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+   | mpg  | cylinders | displacement | horsepower | weight | acceleration | model_year | origin | name                       |
+   |------|-----------|--------------|------------|--------|--------------|------------|--------|----------------------------|
+   | 18.0 | 8         | 307.0        | 130.0      | 3504   | 12.0         | 70         | usa    | chevrolet chevelle malibu  |
+   | 15.0 | 8         | 350.0        | 165.0      | 3693   | 11.5         | 70         | usa    | buick skylark 320          |
+   | 18.0 | 8         | 318.0        | 150.0      | 3436   | 11.0         | 70         | usa    | plymouth satellite         |
+   | 16.0 | 8         | 304.0        | 150.0      | 3433   | 12.0         | 70         | usa    | amc rebel sst              |
+   | 17.0 | 8         | 302.0        | 140.0      | 3449   | 10.5         | 70         | usa    | ford torino                |
+   | 15.0 | 8         | 429.0        | 198.0      | 4341   | 10.0         | 70         | usa    | ford galaxie 500           |
+   | 14.0 | 8         | 454.0        | 220.0      | 4354   | 9.0          | 70         | usa    | chevrolet impala           |
+   | 14.0 | 8         | 440.0        | 215.0      | 4312   | 8.5          | 70         | usa    | plymouth fury iii          |
+   | 14.0 | 8         | 455.0        | 225.0      | 4425   | 10.0         | 70         | usa    | pontiac catalina           |
+   | 15.0 | 8         | 390.0        | 190.0      | 3850   | 8.5          | 70         | usa    | amc ambassador dpl         |
 
-   .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-   .dataframe thead th {
-        text-align: right;
-    }
-    </style>
-    <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cylinders</th>
-      <th>displacement</th>
-      <th>horsepower</th>
-      <th>weight</th>
-      <th>acceleration</th>
-      <th>model_year</th>
-      <th>origin</th>
-      <th>name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>18.0</td>
-      <td>8</td>
-      <td>307.0</td>
-      <td>130.0</td>
-      <td>3504</td>
-      <td>12.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>chevrolet chevelle malibu</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>15.0</td>
-      <td>8</td>
-      <td>350.0</td>
-      <td>165.0</td>
-      <td>3693</td>
-      <td>11.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>buick skylark 320</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>18.0</td>
-      <td>8</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>3436</td>
-      <td>11.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>plymouth satellite</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>16.0</td>
-      <td>8</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3433</td>
-      <td>12.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>amc rebel sst</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>17.0</td>
-      <td>8</td>
-      <td>302.0</td>
-      <td>140.0</td>
-      <td>3449</td>
-      <td>10.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>ford torino</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15.0</td>
-      <td>8</td>
-      <td>429.0</td>
-      <td>198.0</td>
-      <td>4341</td>
-      <td>10.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>ford galaxie 500</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>14.0</td>
-      <td>8</td>
-      <td>454.0</td>
-      <td>220.0</td>
-      <td>4354</td>
-      <td>9.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>chevrolet impala</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>14.0</td>
-      <td>8</td>
-      <td>440.0</td>
-      <td>215.0</td>
-      <td>4312</td>
-      <td>8.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>plymouth fury iii</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>14.0</td>
-      <td>8</td>
-      <td>455.0</td>
-      <td>225.0</td>
-      <td>4425</td>
-      <td>10.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>pontiac catalina</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>15.0</td>
-      <td>8</td>
-      <td>390.0</td>
-      <td>190.0</td>
-      <td>3850</td>
-      <td>8.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>amc ambassador dpl</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+ 
   ```python
    dp.nunique()
+  ```
+   | mpg          |    129 |
+   |              |        |
+   | cylinders    |      5 |
+   | displacement |     82 |
+   | horsepower   |     93 |
+   | weight       |    351 |
+   | acceleration |     95 |
+   | model_year   |     13 |
+   | origin       |      3 |
+   | name         |    305 |
+   |  dtype: int64 |
+
+  ```python
    dp.info()
+  ```
+   #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   mpg           398 non-null    float64
+ 1   cylinders     398 non-null    int64  
+ 2   displacement  398 non-null    float64
+ 3   horsepower    392 non-null    float64
+ 4   weight        398 non-null    int64  
+ 5   acceleration  398 non-null    float64
+ 6   model_year    398 non-null    int64  
+ 7   origin        398 non-null    object 
+ 8   name          398 non-null    object 
+ 
+  ```python
    dp.describe()
+  ```
+  ```python
    dp.corr()
+  ```
+  ```python
    pd.isnull(dp).sum()
+  ```
+  ```python
    dp.dropna()
   ```
 
