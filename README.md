@@ -127,25 +127,152 @@ To run the mileage prediction model, follow these steps:
   ```
 
 3. **Train the model:**
-   ```bash
-   python train.py
-   ```
+   ```python
+   from sklearn.model_selection import train_test_split
+   from sklearn.linear_model import LinearRegression
+   from sklearn.preprocessing import StandardScaler
 
+
+   X_scaled = StandardScaler().fit_transform(X) 
+   y = y  
+
+
+   X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+  
+   print(X_train.shape, y_train.shape)
+   
+   lr = LinearRegression()
+   lr.fit(X_train,y_train)
+
+   lr.intercept_
+   ```
+   ```text
+      23.725139778636965
+   ```
+   ```python
+     lr.coef_
+   ```
+   ```text
+      array([-1.04061664, -2.14102322, -4.02858566, -0.14389381])
+   ```
+   ```python
+      y_pred =lr.predict(X_test)
+      y_pred
+   ```
+   ```text
+      array([30.29700847, 24.72839529, 32.77893004, 31.27178433, 26.18332869,
+       30.19790285,  9.81526818, 29.58152065, 22.56385356, 33.14051592,
+       13.23874517, 24.1391044 , 12.83017376, 30.14280976, 20.38189119,
+       27.02039027, 23.57590536, 29.14144886, 27.30788492, 27.65446095,
+       24.90558498, 31.16937391, 31.47571282, 18.86721149, 31.78148011,
+       28.87714445, 25.22555967, 21.20195807, 32.54635112, 28.1290699 ,
+       13.05421087, 22.96640113, 18.90765778, 27.64588509, 12.26835702,
+       31.47347388, 12.76589319, 30.02083426, 14.3995173 ,  8.22494206,
+       15.94191344, 30.53780211, 31.06244592, 29.44145151, 11.87276816,
+        7.01517914, 22.00319607, 30.79931703, 28.60670965, 31.69623013,
+       13.98299429, 28.38757853, 28.46369689, 29.32033768, 23.65251357,
+       19.54780288, 21.69478155, 23.87779746, 27.91210094, 28.70335923,
+        5.28311079, 23.53912511, 24.80800038, 25.40489967, 27.08954575,
+       29.33975889, 26.41480722, 31.70667484, 20.92640591,  9.99481226,
+       28.59957908, 13.05021743, 25.44966623, 29.92998514, 22.13493756,
+       29.93984436, 14.80654324, 18.1203581 , 29.69181725, 19.89681623,
+       26.92097788, 24.39817442, 14.56889101, 32.24976789, 10.69021645,
+       32.53119954, 23.66055342, 21.5117776 , 17.44313289, 19.52904422,
+       25.50826822, 24.72450197, 31.45077589, 27.50750213, 20.49309346,
+       19.06208574, 24.3027989 , 10.59822645, 26.90717906, 25.06442375,
+        7.99895928, 18.3540233 ,  9.15452582, 33.11858724, 30.35013518,
+       31.2777188 , 33.08412398, 27.23506838, 25.0255399 , 16.76395043,
+       31.64205288, 31.71792394, 28.99393827, 28.21748471, 31.51023039,
+       26.48553666, 17.04106949, 23.91651035])
+   ```
+   
 4. **Evaluate the model:**
-   ```bash
-   python evaluate.py
+   ```python
+      from sklearn.metrics import mean_absolute_error,mean_absolute_percentage_error,r2_score
+      from sklearn.preprocessing import PolynomialFeatures
+
+      mean_absolute_error(y_test,y_pred)
    ```
-
-5. **Predict mileage for new data:**
-   ```bash
-   python predict.py --input data/new_data.csv
+   ```text
+     3.571062458260172
    ```
+   ```python
+     mean_absolute_percentage_error(y_test,y_pred)
+   ```
+   ```text
+      0.16585849039360423
+   ```
+   ```python
+   r2_score(y_test,y_pred)
+   ```
+   ```text
+   0.646
+     3.571062458260172
+   ```
+   ```python
+     mean_absolute_percentage_error(y_test,y_pred)
+   ```
+   ```text
+      0.16585849039360423
+   ```
+   ```python
+   r2_score(y_test,y_pred)
+   ```
+   ```text
+   0.6464709361746057
+   ```
+   
+6. **Predict mileage for new data:**
+   ```python
+      poly=PolynomialFeatures(degree=2, interaction_only=True, include_bias=False)
+      X_test2=poly.fit_transform(X_test)
+      X_train2=poly.fit_transform(X_train)
 
-
-
+      lr.fit(X_train2, y_train)
+      lr.coef_
+   ```
+   ```text
+      array([-2.52368317, -6.00923236, -1.20614165, -1.28760869,  1.70981614,
+        0.07979862,  0.84172331,  0.84342873, -1.06549005,  0.38737357])
+   ```
+   ```python
+        y_pred_poly=lr.predict(X_test2)
+       mean_absolute_error(y_test,y_pred_poly)
+   ```
+   ```text
+     3.2029588018848485
+   ```
+   ```python
+     mean_absolute_percentage_error(y_test,y_pred_poly)
+   ```
+   ```text
+      0.14172552686749482
+   ```
+   ```python
+      r2_score(y_test,y_pred_poly)
+   ```
+   ```text
+     0.6726357867835955
+   ```
 ## Results
 
-The results of the model are documented in the `results` directory, including plots, evaluation metrics, and comparison between different models.
+The predictive model for mileage estimation yielded the following results:
+
+1. **Linear Regression Model**:
+   - **Mean Absolute Error (MAE)**:  3.571
+   - **Mean Absolute Percentage Error (MAPE)**: 0.165
+   - **R-Squared (R²)**: 0.646
+
+2. **Polynomial Regression Model**:
+   - **Mean Absolute Error (MAE)**: 3.202
+   - **Mean Absolute Percentage Error (MAPE)**: 0.141
+   - **R-Squared (R²)**: 0.672
+
+These results indicate that both linear and polynomial regression models provide reasonable estimates for miles per gallon (mpg) based on vehicle features such as displacement, horsepower, weight, and acceleration. The polynomial regression model showed slight improvements in performance metrics compared to the linear regression model, suggesting that it captures non-linear relationships more effectively.
+
+## Conclusion
+
+ The predictive model for mileage estimation effectively utilizes linear and polynomial regression techniques to predict the miles per gallon (mpg) of vehicles based on key features such as displacement, horsepower, weight, and acceleration. The model demonstrated satisfactory performance metrics, including mean absolute error, mean absolute percentage error, and R-squared values, indicating a good fit for the data. These predictions can aid in understanding vehicle efficiency trends and support decision-making in automotive design and consumer choices. Future enhancements could include incorporating additional features and exploring more advanced modeling techniques to further improve prediction accuracy.
 
 ## Contributing
 
