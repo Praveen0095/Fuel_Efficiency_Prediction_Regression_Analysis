@@ -74,7 +74,7 @@ To run the mileage prediction model, follow these steps:
    dp.head(10)
   ```
     <div>
-<style scoped>
+    <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -86,8 +86,8 @@ To run the mileage prediction model, follow these steps:
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
+    </style>
+    <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
