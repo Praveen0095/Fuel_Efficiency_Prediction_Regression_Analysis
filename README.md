@@ -1,7 +1,3 @@
-Sure! Below is an example of a GitHub README file for a mileage prediction project:
-
----
-
 # Mileage Prediction
 
 Welcome to the Mileage Prediction project! This repository contains code and resources for predicting the mileage (MPG - Miles Per Gallon) of vehicles using machine learning techniques.
@@ -73,17 +69,17 @@ To run the mileage prediction model, follow these steps:
   ```python
    dp.head(10)
   ```
-    <div>
+   <div>
     <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-    .dataframe tbody tr th {
+   .dataframe tbody tr th {
         vertical-align: top;
     }
 
-    .dataframe thead th {
+   .dataframe thead th {
         text-align: right;
     }
     </style>
@@ -226,13 +222,15 @@ To run the mileage prediction model, follow these steps:
   </tbody>
 </table>
 </div>
+
+  ```python
    dp.nunique()
    dp.info()
    dp.describe()
    dp.corr()
    pd.isnull(dp).sum()
    dp.dropna()
-
+  ```
 
 3. **Train the model:**
    ```bash
