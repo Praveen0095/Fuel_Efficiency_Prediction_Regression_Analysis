@@ -119,7 +119,7 @@ This method helps us to find the non-null values count or the number of unique v
    dp.describe()
   ```
   |       |  mpg       |	cylinders     | displacement  | horsepower |	weight	  | acceleration |	model_year|
-  |       |            |                 |               |            |            |              |             |
+  |-------|------------|-----------------|---------------|------------|------------|--------------|-------------|
   | count |	398.000000 |	398.000000	  |  398.000000	| 392.000000 |	398.000000 |  398.000000  | 398.000000  |
   | mean  |	23.514573  |	5.454774	     |  193.425879	| 104.469388 |	2970.42462 |	15.568090  |	76.010050 |
   |  std	 | 7.815984	  |   1.701004	     |  104.269838	| 38.491160	 | 846.841774 |	2.757689	  |    3.697627 |
@@ -133,7 +133,7 @@ This method helps us to find the non-null values count or the number of unique v
    dp.corr()
   ```
   |    |  mpg    |  cylinders | displacement | horsepower |  weight | acceleration | model_year | origin |                      name | 
-  |    |         |            |              |            |         |              |            |        |                           |
+  |----|---------|------------|--------------|------------|---------|--------------|------------|--------|---------------------------|
   | 0  |  18.0   |   8        |  307.0       |   130.0    |  3504   |  12.0        | 70         |  usa   | chevrolet chevelle malibu | 
   | 1  |  15.0   |   8        |  350.0       |   165.0    |  3693   |  11.5        |  70        |  usa   |         buick skylark 320 |
   | 2  |  18.0   |   8        |  318.0       |   150.0    |  3436   |  11.0        |  70        |  usa   |        plymouth satellite |
