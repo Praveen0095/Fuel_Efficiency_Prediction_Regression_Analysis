@@ -101,17 +101,17 @@ To run the mileage prediction model, follow these steps:
   ```python
    dp.info()
   ```
-  | #  | Column   |     Non-Null Count |  Dtype | 
-  | ---  | ------     |   --------------  | -----  |
-  | 0  | mpg          |  398 non-null |   float64 |
-  | 1  | cylinders    | 398 non-null  |  int64  |
-  | 2  | displacement | 398 non-null  |  float64 |
-  | 3  | horsepower   | 392 non-null  |  float64 |
-  | 4  | weight       | 398 non-null  |  int64  |
-  | 5  | acceleration | 398 non-null  |  float64 |
-  | 6  | model_year   | 398 non-null  |  int64  |
-  | 7  | origin       | 398 non-null  |  object |
-  | 8  | name         | 398 non-null  |  object |
+  | #  | Column       |Non-Null Count |  Dtype | 
+  | ---| ------       |-------------- | -----  |
+  | 0  | mpg          |  398 non-null |float64 |
+  | 1  | cylinders    | 398 non-null  | int64  |
+  | 2  | displacement | 398 non-null  |float64 |
+  | 3  | horsepower   | 392 non-null  |float64 |
+  | 4  | weight       | 398 non-null  | int64  |
+  | 5  | acceleration | 398 non-null  |float64 |
+  | 6  | model_year   | 398 non-null  | int64  |
+  | 7  | origin       | 398 non-null  | object |
+  | 8  | name         | 398 non-null  | object |
  
   ```python
    dp.describe()
