@@ -21,7 +21,7 @@ This project builds a predictive model to estimate vehicle fuel efficiency (Mile
 
 ## 🧾 Dataset
 
-Source: data/MPG.csv
+Source: Data/MPG.csv
 
 Features:
 - **Numerical:** MPG, Cylinders, Displacement, Horsepower, Weight, Acceleration
@@ -67,7 +67,9 @@ Features:
 | Mean Absolute % Error (MAPE) | 16.5% | **14.2%** |
 | R² Score | 0.646 | **0.672** |
 
-✅ **Conclusion:** Polynomial regression yields better predictive accuracy. The model can serve as a foundation for simulating design changes and comparing fuel efficiency across prototypes.
+✅ **Conclusion:** * Polynomial regression yields better predictive accuracy. The model can serve as a foundation for simulating design changes and comparing fuel efficiency across prototypes.
+* The model demonstrated satisfactory performance metrics, including mean absolute error, mean absolute percentage error, and R-squared values, indicating a good fit for the data.
+* These predictions can aid in understanding vehicle efficiency trends and support decision-making in automotive design and consumer choices. Future enhancements could include incorporating additional features and exploring more advanced modeling techniques to further improve prediction accuracy.
 
 ---
 
@@ -77,13 +79,6 @@ Features:
 - **Environmental Agencies**: Estimate fleet emissions based on engine specs
 - **Used Car Platforms**: Provide intelligent MPG predictions for listings
 - **Consumers**: Compare vehicles based on likely fuel costs
-
----
-
-
-## 📈 Visualization Example
-
-*(Insert EDA charts, pairplots, or regression fits here)*
 
 ---
 
@@ -98,12 +93,6 @@ Features:
 ## 🤝 Contributing
 
 Got ideas to improve this or apply it to a real-world business use case? Contributions, issues, and forks are welcome!
-
----
-
-## 📄 License
-
-MIT License. See `LICENSE` file for details.
 
 ---
 
@@ -185,15 +174,4 @@ print("R² (poly):", r2_score(y_test, y_pred_poly))
 
 ---
 
-## 🧪 Sample Output from Linear Model Predictions
-
-```text
-[30.297, 24.728, 32.778, 31.271, 26.183, ..., 23.660, 21.511, 17.443]
-```
-
-## 🧪 Sample Output from Polynomial Model Coefficients
-
-```text
-array([-2.52, -6.00, -1.20, -1.28, 1.70, 0.08, 0.84, 0.84, -1.06, 0.39])
-```
 
