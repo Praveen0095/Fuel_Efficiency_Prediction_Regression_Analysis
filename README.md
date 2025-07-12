@@ -21,7 +21,7 @@ This project builds a predictive model to estimate vehicle fuel efficiency (Mile
 
 ## 🧾 Dataset
 
-Source: [Auto MPG Dataset](https://archive.ics.uci.edu/ml/datasets/Auto+MPG) — UCI ML Repository
+Source: data/MPG.csv
 
 Features:
 - **Numerical:** MPG, Cylinders, Displacement, Horsepower, Weight, Acceleration
@@ -80,43 +80,6 @@ Features:
 
 ---
 
-## 📁 Folder Structure
-
-```
-├── data/               # Dataset & raw files
-├── notebooks/          # EDA & modeling notebooks
-├── models/             # Trained models (optional)
-├── results/            # Visualizations and metrics
-├── requirements.txt    # Dependencies
-└── README.md           # This file
-```
-
----
-
-## 🚀 How to Use
-
-1. **Clone the repo & install requirements:**
-   ```bash
-   git clone https://github.com/yourusername/mileage-prediction.git
-   cd mileage-prediction
-   pip install -r requirements.txt
-   ```
-
-2. **Run EDA and preprocessing**  
-   Inspect dataset and clean missing values.
-
-3. **Train model:**
-   ```python
-   python train_model.py
-   ```
-
-4. **Evaluate predictions:**
-   Output includes MAE, MAPE, and R².
-
-5. **Predict new data:**
-   Use the `predict.py` script or notebook to test unseen vehicle specs.
-
----
 
 ## 📈 Visualization Example
 
